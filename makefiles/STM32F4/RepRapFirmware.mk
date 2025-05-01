@@ -1,10 +1,10 @@
 #---RepRapFirmware---
 RRF_SRC_BASE  = $(REPRAPFIRMWARE_DIR)/src
 
-RRF_SRC_DIRS = FilamentMonitors GCodes GCodes/GCodeBuffer Heating 
+RRF_SRC_DIRS = FilamentMonitors GCodes GCodes/GCodeBuffer Hardware/Heating 
 RRF_SRC_DIRS += Movement Movement/BedProbing Movement/Kinematics Movement/HeightControl
 RRF_SRC_DIRS += Storage Libraries/sha1 Comms Platform PrintMonitor Accelerometers
-RRF_SRC_DIRS += Heating/Sensors Fans ObjectModel Endstops Hardware Hardware/Spi Tools
+RRF_SRC_DIRS += Hardware/Heating/Sensors Fans ObjectModel Endstops Hardware Hardware/Spi Tools
 RRF_SRC_DIRS += Display Display/Lcd Display/Lcd/Fonts Display/Lcd/ST7567 Display/Lcd/ST7920 GPIO bossa
 RRF_SRC_DIRS += CAN ClosedLoop InputMonitors LedStrips
 
@@ -18,12 +18,12 @@ ifeq ($(NETWORK), ETHERNET)
 else ifeq ($(NETWORK), COMBINED) 
 	RRF_SRC_DIRS += Networking Networking/ESP8266WiFi Hardware/STM32/Networking/ESP8266WiFi
 	RRF_SRC_DIRS += Networking/MQTT Networking/MQTT/MQTT_C/src
-	RRF_SRC_DIRS += Sbc
+	RRF_SRC_DIRS += SBC
 else ifeq ($(NETWORK), WIFI) 
 	RRF_SRC_DIRS += Networking Networking/ESP8266WiFi Hardware/STM32/Networking/ESP8266WiFi
 	RRF_SRC_DIRS += Networking/MQTT Networking/MQTT/MQTT_C/src
 else ifeq ($(NETWORK), SBC)
-	RRF_SRC_DIRS += Sbc Networking
+	RRF_SRC_DIRS += SBC Networking
 #	RRF_SRC_DIRS += targets/common/NoNetwork
 else
 #	RRF_SRC_DIRS += targets/common/NoNetwork
